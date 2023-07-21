@@ -3,31 +3,34 @@ package com.cgi.shapes;
 // constructor - default, 
 // String immutability\
 // equals and hashcode 
-// 
+// oops - polymorphism, iheritance, abstraction, encapsultion.
+// overloading- same functin name, diff params, 
+// overriding -  same function name, same params but in parent child class
+// interfaces
 
 
 import java.util.Objects;
 
-public class Circle {
+public class Circle extends Shape {
 	
 
 	char c = 'a';
 	int r = 10; 
-	Integer val = r;
+	//Integer val = r;
 	String color = "White";
 	
 	
-	Circle(){
+	public Circle(){
 		r=c;
 		
 	}
 	
-	Circle(int r){
+	public Circle(int r){
 		this.r=r;
 		
 	}
 	
-	Circle(int r, String col){
+	public Circle(int r, String col){
 		this.r=r;
 		this.color = col;
 		
@@ -45,9 +48,14 @@ public class Circle {
 		
 	}
 	
+	public void process(String p){
+	System.out.println("process is" + "P");
+	}
+	
 
 	public static void main(String[] args) {
-	
+		
+		Circle c3 = new Circle(2); // static polymorphism
 		Circle c = new Circle(2,"red");
 		Circle c2 = new Circle(2,"red");
 		System.out.println( c.hashCode()==c2.hashCode()); 
@@ -55,8 +63,13 @@ public class Circle {
 		System.out.println(c);
 		
 		//System.out.println("In master circle b3 " + c.i );
-		//c.process();
-		//System.out.println(c.color);
+		c.process();
+		Shape s = new Shape();
+		System.out.println(s.getName());
+		s = c; // dynamic polymorphism 
+		System.out.println(s.getName());
+		
+		//System.out.println(c.getName());
 		
 		
 		
@@ -69,6 +82,10 @@ public class Circle {
 		return Objects.hash(color, r);
 	}
 
+	public String getName() {
+		return "Child - circle";
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -87,4 +104,6 @@ public class Circle {
 		return "radius is  " + r +" and color is " + color;
 	}
 
+	
+	
 }
