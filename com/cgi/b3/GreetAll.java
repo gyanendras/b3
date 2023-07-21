@@ -4,11 +4,11 @@ public class GreetAll{
 private String s = "Hello World! In Br1";
 private int x = 10;
 
-GreetAll(){
+public GreetAll(){
 	s = "HI PPL!" ;
 }
 
-GreetAll(String s){
+public GreetAll(String s){
 	this.s = s ;
 }
 

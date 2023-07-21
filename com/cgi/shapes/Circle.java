@@ -7,11 +7,15 @@ package com.cgi.shapes;
 // overloading- same functin name, diff params, 
 // overriding -  same function name, same params but in parent child class
 // interfaces
+// Collection - Lists, Sets, Map
+// Before using objects in collections override equals,hashcode,and implement comparable.
 
 
+
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Circle extends Shape {
+public class Circle extends Shape implements Comparable<Circle>, Serializable{
 	
 
 	char c = 'a';
@@ -46,6 +50,7 @@ public class Circle extends Shape {
 		System.out.println(color == color3);
 		System.out.println(color.equals(color3));
 		
+		
 	}
 	
 	public void process(String p){
@@ -71,6 +76,10 @@ public class Circle extends Shape {
 		
 		//System.out.println(c.getName());
 		
+		Comparable c4 = c;
+		
+		
+		
 		
 		
 		
@@ -83,7 +92,7 @@ public class Circle extends Shape {
 	}
 
 	public String getName() {
-		return "Child - circle";
+		return "Child - circle "+r;
 	}
 	
 	@Override
@@ -102,6 +111,12 @@ public class Circle extends Shape {
 	@Override
 	public String toString() {
 		return "radius is  " + r +" and color is " + color;
+	}
+
+	@Override
+	public int compareTo(Circle o) {
+		// TODO Auto-generated method stub
+		return this.r-o.r;
 	}
 
 	
